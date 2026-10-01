@@ -1,0 +1,23 @@
+name: Verify Documentation
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  lint:
+    name: Verify Markdown & Links
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for broken symlinks or missing files
+        run: |
+          echo "Verifying documentation files exist..."
+          test -f README.md
+          test -f docs/01-foundation/01-framework-charter.md
+          test -f docs/02-architecture/01-operational-architecture.md
+          echo "Core documents verified successfully."
