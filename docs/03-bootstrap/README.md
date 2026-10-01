@@ -12,9 +12,15 @@ The **Bootstrap & Discovery** module defines how AICF is introduced to and maint
 
 ---
 
+## Specification
+
+- [01-bootstrap-and-discovery-specification.md](01-bootstrap-and-discovery-specification.md): **AICF-001** Normative specification defining discovery traversal, static repository detection heuristics, initialization protocol (`aicf init`), manifest concept (`manifest.json`), conformance validation, framework lifecycle states, and client integration boundaries.
+
+---
+
 ## Status
 
 > [!NOTE]
-> **Specification Milestone: AICF-001 (Recommended Next Step)**  
-> This capability is scheduled for detailed specification under **AICF-001 — Bootstrap & Discovery Specification**.  
-> Detailed implementation and CLI commands are deliberately deferred until that specification is finalized.
+> **Specification Milestone: AICF-001 Complete**  
+> The normative specification is defined in [01-bootstrap-and-discovery-specification.md](01-bootstrap-and-discovery-specification.md).  
+> Concrete CLI implementation and tooling code are scheduled for subsequent implementation phases.

@@ -9,9 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- **AICF-001 — Bootstrap & Discovery Specification** ([docs/03-bootstrap/01-bootstrap-and-discovery-specification.md](docs/03-bootstrap/01-bootstrap-and-discovery-specification.md)):
+  - Discovery model with upward directory traversal, symlink security, and monorepo precedence.
+  - Canonical `manifest.json` concept, minimum information requirements, and schema mapping.
+  - Step-by-step normative `aicf init` workflow with dry-run, atomic staging, and non-destructive repair mode.
+  - Static repository detection taxonomy (required vs. optional static heuristics).
+  - Template selection matrix and profile specialization.
+  - Conformance and validation model with three-tier severity (`ERROR`, `WARNING`, `INFORMATION`).
+  - Formal 6-state framework lifecycle state machine.
+  - Universal agent/editor integration boundary contract.
+
 ### Planned
-- **AICF-001**: Bootstrap & Discovery Specification (`docs/03-bootstrap/`).
-- JSON/YAML schema definitions for manifest and canonical artifacts (`schemas/`).
+- **AICF-002**: Manifest & Artifact Machine Schemas (`schemas/`).
 - Initial CLI tooling architecture (`tooling/cli/`).
 - Adapter contracts for Cursor, Claude, Gemini, and Antigravity (`adapters/`).
 

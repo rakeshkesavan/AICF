@@ -170,7 +170,7 @@ aicf/
 | **Operational Architecture** | :white_check_mark: Complete | [docs/02-architecture/](docs/02-architecture/) |
 | **Canonical Starter Template** | :white_check_mark: Available | [templates/default/.aicf/](templates/default/.aicf/) |
 | **Repository Reorganization** | :white_check_mark: Complete | Standard GitHub layout |
-| **Bootstrap & Discovery** | :hourglass_flowing_sand: Planned | **AICF-001** (Immediate Next Milestone) |
+| **Bootstrap & Discovery** | :white_check_mark: Specified | [AICF-001](docs/03-bootstrap/01-bootstrap-and-discovery-specification.md) |
 | **Machine Schemas** | :hourglass_flowing_sand: Planned | `schemas/` (Manifest & Artifact validation) |
 | **Developer CLI Tooling** | :hourglass_flowing_sand: Planned | `tooling/cli/` (`aicf init`, `validate`, `status`) |
 | **Agent / Editor Adapters** | :hourglass_flowing_sand: Planned | Cursor, Claude, Gemini, Antigravity |
