@@ -21,3 +21,14 @@ jobs:
           test -f docs/01-foundation/01-framework-charter.md
           test -f docs/02-architecture/01-operational-architecture.md
           echo "Core documents verified successfully."
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install validation dependencies
+        run: pip install jsonschema
+
+      - name: Validate Manifest JSON Schema and Fixtures
+        run: python schemas/manifest/test_manifest_schema.py

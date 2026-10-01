@@ -1,0 +1,18 @@
+{
+  "aicf": {
+    "version": 1.0
+  },
+  "project": {
+    "id": 12345,
+    "name": true
+  },
+  "profile": {
+    "id": [
+      "default"
+    ]
+  },
+  "repository": {
+    "languages": "typescript",
+    "workspace": "false"
+  }
+}

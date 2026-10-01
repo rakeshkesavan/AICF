@@ -1,0 +1,15 @@
+{
+  "aicf": {
+    "version": "0.1"
+  },
+  "project": {
+    "id": "project-009",
+    "name": "Project Nine"
+  },
+  "profile": {
+    "id": "default"
+  },
+  "artifacts": {
+    "rules": "../../rules.md"
+  }
+}

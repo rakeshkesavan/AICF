@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AICF Manifest Schema",
+  "description": "Concrete JSON Schema contract for the AI Companion Framework (AICF) manifest (.aicf/manifest.json) conforming to AICF-002 and AICF-002A v0.1.0.",
+  "type": "object",
+  "required": [
+    "aicf",
+    "project",
+    "profile"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "aicf": {
+      "type": "object",
+      "description": "AICF specification contract and version declaration.",
+      "required": [
+        "version"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The AICF specification version followed by the project (e.g., '0.1' or '0.1.0')."
+        }
+      }
+    },
+    "project": {
+      "type": "object",
+      "description": "AICF project instance identity.",
+      "required": [
+        "id",
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Stable unique identifier for the project instance."
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Human-readable project name."
+        }
+      }
+    },
+    "profile": {
+      "type": "object",
+      "description": "The AICF profile/template classification used by the project.",
+      "required": [
+        "id"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Profile identifier (e.g., 'default', 'web-application', 'service', 'library', 'monorepo')."
+        }
+      }
+    },
+    "repository": {
+      "type": "object",
+      "description": "Normalized repository characteristics detected by AICF tooling.",
+      "additionalProperties": false,
+      "properties": {
+        "type": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Version control system type (e.g., 'git', 'none', 'other')."
+        },
+        "languages": {
+          "type": "array",
+          "description": "Primary programming and scripting languages used in the repository.",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "frameworks": {
+          "type": "array",
+          "description": "Frameworks and major libraries identified in the repository.",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "packageManager": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Package or dependency manager used (e.g., 'npm', 'pnpm', 'yarn', 'cargo', 'maven', 'gradle', 'pip', 'poetry')."
+        },
+        "runtime": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Execution runtime environment (e.g., 'node', 'jvm', 'python', 'dotnet')."
+        },
+        "buildSystem": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Build orchestration tool or system (e.g., 'tsc', 'webpack', 'vite', 'gradle', 'maven', 'cargo', 'make')."
+        },
+        "testFrameworks": {
+          "type": "array",
+          "description": "Testing frameworks identified in the codebase.",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "workspace": {
+          "type": "boolean",
+          "description": "Indicates whether the repository is configured as a multi-package workspace or monorepo."
+        }
+      }
+    },
+    "artifacts": {
+      "type": "object",
+      "description": "Canonical references to AICF project artifacts. All paths must be safe and .aicf/-relative.",
+      "properties": {
+        "project": {
+          "$ref": "#/$defs/safeArtifactPath"
+        },
+        "rules": {
+          "$ref": "#/$defs/safeArtifactPath"
+        },
+        "state": {
+          "$ref": "#/$defs/safeArtifactPath"
+        },
+        "environment": {
+          "$ref": "#/$defs/safeArtifactPath"
+        },
+        "requirements": {
+          "$ref": "#/$defs/safeArtifactPath"
+        },
+        "tasks": {
+          "$ref": "#/$defs/safeArtifactPath"
+        },
+        "decisions": {
+          "$ref": "#/$defs/safeArtifactPath"
+        },
+        "features": {
+          "$ref": "#/$defs/safeArtifactPath"
+        },
+        "domains": {
+          "$ref": "#/$defs/safeArtifactPath"
+        },
+        "validation": {
+          "$ref": "#/$defs/safeArtifactPath"
+        }
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/safeArtifactPath"
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "description": "Controlled extension namespaces for tools, plugins, and custom adapters.",
+      "propertyNames": {
+        "type": "string",
+        "minLength": 1,
+        "not": {
+          "enum": [
+            "aicf",
+            "project",
+            "profile",
+            "repository",
+            "artifacts",
+            "extensions"
+          ]
+        }
+      },
+      "additionalProperties": {
+        "type": "object",
+        "description": "Extension namespace payload."
+      }
+    }
+  },
+  "$defs": {
+    "safeArtifactPath": {
+      "type": "string",
+      "minLength": 1,
+      "pattern": "^(?![a-zA-Z]:)(?![a-zA-Z0-9+.-]+:)(?![/\\\\])(?!.*(^|[/\\\\])\\.\\.($|[/\\\\])).+$",
+      "description": "A safe, .aicf/-relative path pointing to a file or directory. Absolute paths, drive letters, URI schemes, and path traversal ('..') are strictly prohibited."
+    }
+  }
+}

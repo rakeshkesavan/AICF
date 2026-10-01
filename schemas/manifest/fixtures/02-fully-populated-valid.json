@@ -1,0 +1,49 @@
+{
+  "aicf": {
+    "version": "0.1.0"
+  },
+  "project": {
+    "id": "e4b5c6d7-8a9b-4c0d-1e2f-3a4b5c6d7e8f",
+    "name": "full-stack-web-service"
+  },
+  "profile": {
+    "id": "web-application"
+  },
+  "repository": {
+    "type": "git",
+    "languages": [
+      "typescript",
+      "html",
+      "css"
+    ],
+    "frameworks": [
+      "angular",
+      "express"
+    ],
+    "packageManager": "pnpm",
+    "runtime": "node",
+    "buildSystem": "vite",
+    "testFrameworks": [
+      "vitest"
+    ],
+    "workspace": false
+  },
+  "artifacts": {
+    "project": "project.md",
+    "rules": "rules.md",
+    "state": "state.md",
+    "environment": "environment.md",
+    "requirements": "requirements",
+    "tasks": "tasks",
+    "decisions": "decisions",
+    "features": "features",
+    "domains": "domains",
+    "validation": "validation"
+  },
+  "extensions": {
+    "custom-telemetry": {
+      "version": "1.0.0",
+      "enabled": true
+    }
+  }
+}

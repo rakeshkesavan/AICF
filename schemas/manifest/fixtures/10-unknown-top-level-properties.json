@@ -1,0 +1,15 @@
+{
+  "aicf": {
+    "version": "0.1"
+  },
+  "project": {
+    "id": "project-010",
+    "name": "Project Ten"
+  },
+  "profile": {
+    "id": "default"
+  },
+  "randomConfiguration": {
+    "someKey": "someValue"
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "aicf": {
+    "version": "0.1"
+  },
+  "project": {
+    "id": "project-008",
+    "name": "Project Eight"
+  },
+  "profile": {
+    "id": "default"
+  },
+  "artifacts": {
+    "project": "C:\\Work\\project\\.aicf\\project.md"
+  }
+}

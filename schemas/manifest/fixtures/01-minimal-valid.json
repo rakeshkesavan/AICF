@@ -1,0 +1,12 @@
+{
+  "aicf": {
+    "version": "0.1"
+  },
+  "project": {
+    "id": "minimal-project-001",
+    "name": "Minimal Project"
+  },
+  "profile": {
+    "id": "default"
+  }
+}

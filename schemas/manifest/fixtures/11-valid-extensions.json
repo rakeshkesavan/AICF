@@ -1,0 +1,24 @@
+{
+  "aicf": {
+    "version": "0.1"
+  },
+  "project": {
+    "id": "project-011",
+    "name": "Project Eleven"
+  },
+  "profile": {
+    "id": "default"
+  },
+  "extensions": {
+    "team-metrics": {
+      "collector": "prometheus",
+      "reportingIntervalSeconds": 60
+    },
+    "custom-adapter": {
+      "version": "0.2.1",
+      "settings": {
+        "cacheEnabled": true
+      }
+    }
+  }
+}
