@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aicf.dev/schemas/characterization/aicf-characterization-result.schema.json",
+  "title": "AICF Agent Repository Characterization Result",
+  "description": "Portable agent handoff validated by the Phase 1 bootstrap tool. Evidence paths are repository-relative and must refer to existing files or directories.",
+  "type": "object",
+  "required": [
+    "identity", "purpose", "languages", "frameworks", "runtimes",
+    "package_manager", "important_dependencies", "build_tooling",
+    "testing_tooling", "repository_structure", "development_workflow",
+    "engineering_conventions", "architectural_boundaries",
+    "generated_vendor_files", "agent_constraints", "proposed_artifacts", "evidence"
+  ],
+  "properties": {
+    "identity": { "$ref": "#/$defs/textOrList" },
+    "purpose": { "$ref": "#/$defs/textOrList" },
+    "languages": { "$ref": "#/$defs/textOrList" },
+    "frameworks": { "$ref": "#/$defs/textOrList" },
+    "runtimes": { "$ref": "#/$defs/textOrList" },
+    "package_manager": { "$ref": "#/$defs/textOrList" },
+    "important_dependencies": { "$ref": "#/$defs/textOrList" },
+    "build_tooling": { "$ref": "#/$defs/textOrList" },
+    "testing_tooling": { "$ref": "#/$defs/textOrList" },
+    "repository_structure": { "oneOf": [{ "$ref": "#/$defs/textOrList" }, { "type": "object" }] },
+    "development_workflow": { "$ref": "#/$defs/textOrList" },
+    "engineering_conventions": { "$ref": "#/$defs/textOrList" },
+    "architectural_boundaries": { "$ref": "#/$defs/textOrList" },
+    "generated_vendor_files": { "$ref": "#/$defs/textOrList" },
+    "agent_constraints": { "$ref": "#/$defs/textOrList" },
+    "proposed_artifacts": {
+      "type": "object",
+      "required": ["project.md", "rules.md"],
+      "properties": { "project.md": { "type": "string" }, "rules.md": { "type": "string" } },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "required": ["finding", "paths"],
+        "properties": {
+          "finding": { "type": "string", "minLength": 1 },
+          "paths": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "textOrList": { "oneOf": [{ "type": "string" }, { "type": "array", "items": { "type": "string" } }] }
+  }
+}

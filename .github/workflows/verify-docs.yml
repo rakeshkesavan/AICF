@@ -32,3 +32,7 @@ jobs:
 
       - name: Validate Manifest JSON Schema and Fixtures
         run: python schemas/manifest/test_manifest_schema.py
+
+      - name: Validate AICF Phase 1 Bootstrap Engine
+        run: python tooling/bootstrap/test_bootstrap_phase1.py
+
